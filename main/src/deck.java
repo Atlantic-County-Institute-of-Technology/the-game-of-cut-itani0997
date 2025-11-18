@@ -1,42 +1,61 @@
 import java.util.*;
 
 public class Deck {
-    private Random shuffler = new Random();
-    private Card[] deck = new Card[52];
+Random shuffler = new Random();
+Card[] deck = new Card[52]; 
 
-    public Deck() {
-        buildDeck();
-        shuffleDeck();
+public Card[] popDeck() {
+int i = 0;
+for (int suit = 1; suit <= 4; suit++) {
+for (int face = 1; face <= 13; face++) {
+deck[i] = (new Card(face, suit));
+i++;
+}
+}
+return deck;
+}
 
-    }
+public void shuffleDeck() {
+for(int i = 0; i < 52; i++) {
+int newPos = shuffler.nextInt(52);
+Card temp = deck[i];
+deck[i] = deck[newPos];
+deck[newPos] = temp;
+}
+}
 
-    public Card[] buildDeck() {
-        int i = 0;
-        for (int suit = 1; suit <= 4; suit++) {
-            for (int face = 1; face <= 13; face++) {
-                deck[i] = new Card(face, suit);
-                i++;
-            }
-        }
-        return new Deck();
-    }
+public Card fetchCard(int target) { 
+Card ret = deck[target]; 
+return ret;
+}
 
-    public void shuffleDeck(){
-        for (int i = 0; i <52; i++){
-            int randomPosition = shuffler.nextInt(52);
-            Card temp = deck[i];
-            deck[i] = deck[randomPosition] = temp;
-        }
-    }
+public Card removeCard(int index) {
+Card removedCard = deck[index];
 
-    public Card getCard(int position) {
-        return 52;
-    }
+for (int i = index; i < 51; i++) {
+deck[i] = deck[i + 1];
+}
+deck[51] = null; 
+return removedCard;
+}
 
-    public int getDeckSize() {
-        return 52;
-    }
-    public String toString() {
-        String result = "Deck contents : \n";
+public int getCardsRemaining() {
+int count = 0;
+for (int i = 0; i < deck.length; i++) {
+if (deck[i] != null) {
+count++;
+}
+}
+return count;
+}
 
-    }
+public String toString() {
+String output = " ";
+for (int i = 0; i < 52; i++) {
+if (deck[i] != null) {
+output = deck[i] + "\n" + output;
+}
+}
+return "Deck: \n" + output;
+}
+}
