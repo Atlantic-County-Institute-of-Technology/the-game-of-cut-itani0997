@@ -2,11 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.*;
 public class Main {
-<<<<<<< HEAD
 
-}
-    
-=======
     public static void main(String[] args) {
         int playerWins = 0;
         int cpuWins = 0;
@@ -65,4 +61,3 @@ public class Main {
         scanner.close();
     }
 }
->>>>>>> 69c19c9473b5b999ee670b74184f1883cdc1af05
