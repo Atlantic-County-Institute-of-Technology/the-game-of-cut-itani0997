@@ -22,9 +22,8 @@ public class deck {
       deck[newPos] = temp;
     }
   }
-  public Card fetchCard(int target) { 
-    Card ret = deck[target]; 
-    return ret;
+  public Card fetchCard(int target) {
+   return deck[target];
   }
   
   public Card removeCard(int index) {
@@ -37,20 +36,20 @@ public class deck {
   }
   public int getCardsRemaining() {
     int count = 0;
-    for (int i = 0; i < deck.length; i++) {
-      if (deck[i] != null) {
-        count++;
+      for (Card card : deck) {
+          if (card != null) {
+              count++;
+          }
       }
-    }
     return count;
   }
   public String toString() {
-    String output = " ";
+    StringBuilder output = new StringBuilder(" ");
     for (int i = 0; i < 52; i++) {
       if (deck[i] != null) {
-        output = deck[i] + "\n" + output;
+        output.insert(0, deck[i] + "\n");
       }
-}
-return "Deck: \n" + output;
-}
+    }
+    return "Deck: \n" + output;
+  }
 }
