@@ -56,7 +56,7 @@ public class Main {
         if(playerWins > cpuWins) {
             System.out.println("Congratulations! You won the match!");
         } else {
-            System.out.println("CPU won the match. Better luck next time!");
+            System.out.println("CPU won the match!");
         }
         scanner.close();
     }
