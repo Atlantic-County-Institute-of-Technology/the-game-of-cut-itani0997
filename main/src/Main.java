@@ -39,10 +39,10 @@ public class Main {
                 // Tie - compare suits (Spades=1 > Hearts=2 > Clubs=3 > Diamonds=4)
                 if(playerCard.getSuit() < cpuCard.getSuit()) {
                     playerWins++;
-                    System.out.println("You win by suit priority!");
+                    System.out.println("You win by suit tie-breaker!");
                 } else {
                     cpuWins++;
-                    System.out.println("CPU wins by suit priority!");
+                    System.out.println("CPU wins by suit tie-breaker!");
                 }
             }
             System.out.println("Current Score - Player: " + playerWins + " | CPU: " + cpuWins);
@@ -54,9 +54,9 @@ public class Main {
         System.out.println("=== FINAL RESULTS ===");
         System.out.println("Player: " + playerWins + " | CPU: " + cpuWins);
         if(playerWins > cpuWins) {
-            System.out.println("Congratulations! You won the match!");
+            System.out.println("Congratulations! You won!");
         } else {
-            System.out.println("CPU won the match. Better luck next time!");
+            System.out.println("CPU won!");
         }
         scanner.close();
     }
